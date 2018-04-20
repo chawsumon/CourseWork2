@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Create Order Page</title>
+	<script src="/static/js/jquery.min.js"></script>
+	<!-- <script src="/static/js/cust.js"></script> -->
+	<script src="/static/js/custREST.js"></script>
+</head>
+<body>
+	<h1>Customer Create Order Page</h1>
+	<div id='order_num'>{{order_num}}</div>
+	<div>
+		<b>Product ID</b>
+		<b>Product Description</b>
+		<b>Qty</b>
+		<b>Price</b>
+	</div>
+	<div id='debug'></div>
+	<div id="order_list"></div>
+	<div >
+		<input id='new_product'>
+		<input type="button" id="addToOrder" value="Add To Order">
+	</div>
+</body>
+</html>
