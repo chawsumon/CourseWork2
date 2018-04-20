@@ -3,8 +3,8 @@
 <head>
 	<title>Customer Create Order Page</title>
 	<script src="/static/js/jquery.min.js"></script>
-	<!-- <script src="/static/js/cust.js"></script> -->
-	<script src="/static/js/custREST.js"></script>
+	<script src="/static/js/cust.js"></script>
+	<!-- <script src="/static/js/custREST.js"></script> -->
 </head>
 <body>
 	<h1>Customer Create Order Page</h1>
@@ -21,5 +21,18 @@
 		<input id='new_product'>
 		<input type="button" id="addToOrder" value="Add To Order">
 	</div>
+
+	<table>
+
+		{% for p in d %}
+		                 
+          <tr>
+   			 <td>{{p['id']}}</td>
+   			 <td>{{p['description']}}</td>
+   			 <td>{{p['price']}}</td>
+		  </tr>
+          
+		{% endfor %}
+	</table>		
 </body>
 </html>

@@ -23,10 +23,31 @@ def newCustomer():
 	con.commit()
 	return render_template('custMain.html',order_num = order_num)   
 
+def productList():  
+	con = sqlite3.connect("store.db")
+	cur = con.cursor()
+	cur.execute("select * from product")
+	rows = cur.fetchall()
+	p =[]
+	content={}
+	for result in rows:
+		content = {'id':result[0],'description':result[1],'price':result[2]}
+		p.append(content)
+		content={}
+	return json.dumps(p,indent=2)
+
 @app.route('/cust/<order_num>')
 def custPage(order_num):
-	return render_template('cust.html',order_num = order_num)
-
+	# json_output =[]
+	d = json.loads(productList())
+	
+	# con = sqlite3.connect("store.db")
+	# cur = con.cursor()
+	# cur.execute("select * from product")
+	# rows = cur.fetchall()
+	# print(json_output)
+	return render_template('cust.html',order_num = order_num,d=d)
+	
 @app.route('/order/<order_num>')
 def getOrder(order_num):
 	con = sqlite3.connect('store.db')
